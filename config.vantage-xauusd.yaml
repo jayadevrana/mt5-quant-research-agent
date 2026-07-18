@@ -1,0 +1,82 @@
+account:
+  mode: demo
+  live_trading_enabled: false
+  initial_capital: 25000
+  magic_number: 260524
+  account_number: null
+  broker: Vantage
+  mt5_terminal_path: "C:\\Program Files\\MetaTrader 5\\terminal64.exe"
+
+trading:
+  symbol: XAUUSD
+  timeframe: M15
+  session_start: "07:00"
+  session_end: "16:00"
+  timezone: "UTC"
+  max_trades_per_day: 1
+  allow_weekend_trading: false
+
+risk:
+  risk_per_trade: 0.0025
+  max_daily_loss: 0.01
+  max_weekly_loss: 0.03
+  max_total_drawdown: 0.08
+  max_lot_size: 0.10
+  min_lot_size: 0.01
+  stop_loss_required: true
+
+execution:
+  max_spread_points: 50
+  max_slippage_points: 20
+  order_filling_policy: "FOK"
+  require_stop_loss: true
+  require_take_profit: false
+
+recovery:
+  enabled: true
+  warning_drawdown: 0.03
+  defensive_drawdown: 0.05
+  shutdown_drawdown: 0.08
+  reduce_risk_warning: 0.50
+  reduce_risk_defensive: 0.75
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+safety:
+  kill_switch: false
+  trade_only_if_market_open: true
+  trade_only_if_terminal_connected: true
+  stop_after_consecutive_losses: 3
+  stop_after_daily_loss: true
+  stop_after_weekly_loss: true
+
+backtest:
+  start_date: "2019-01-01"
+  end_date: "2026-01-01"
+  initial_balance: 25000
+  commission_per_lot: 7
+  slippage_points: 20
+  spread_points: 50
+  data_path: "data/XAUUSD_M15.csv"
+  output_dir: "reports/xauusd_vantage"
+
+strategy:
+  name: htf_trend_pullback
+  ema_fast: 50
+  ema_slow: 200
+  pullback_ema: 20
+  atr_period: 14
+  atr_stop_multiple: 1.5
+  take_profit_r: 2.0
+  time_stop_bars: 32
+  atr_min_percentile: 0.20
+  atr_max_percentile: 0.90
+  rolling_regime_bars: 5760
+
+validation:
+  min_trades_3y: 100
+  min_trades_5y: 200
+  min_oos_profit_factor: 1.15
+  max_monte_carlo_drawdown: 0.08
+  max_risk_of_ruin: 0.05

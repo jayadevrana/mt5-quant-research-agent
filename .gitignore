@@ -1,0 +1,17 @@
+
+# Cross-platform / tooling
+node_modules/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+.next/
+out/
+*.log
+*.sqlite
+*.db
